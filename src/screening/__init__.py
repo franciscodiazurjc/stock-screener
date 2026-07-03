@@ -1,4 +1,4 @@
-"""Stock screening module for identifying undervalued stocks at support levels."""
+"""Stock and ETF screening modules."""
 
 from .screener import (
     calculate_value_score,
@@ -13,6 +13,11 @@ from .indicators import (
     detect_volume_spike,
     find_swing_lows
 )
+from .etf_signal_engine import (
+    score_etf_buy_signal,
+    score_etf_sell_signal,
+    format_etf_signal_output,
+)
 
 __all__ = [
     "calculate_value_score",
@@ -23,5 +28,8 @@ __all__ = [
     "calculate_sma",
     "calculate_ema",
     "detect_volume_spike",
-    "find_swing_lows"
+    "find_swing_lows",
+    "score_etf_buy_signal",
+    "score_etf_sell_signal",
+    "format_etf_signal_output",
 ]
