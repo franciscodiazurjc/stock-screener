@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import importlib.util
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -13,6 +14,7 @@ MODULE_PATH = Path(__file__).resolve().parents[1] / "check-stocks.py"
 SPEC = importlib.util.spec_from_file_location("check_stocks", MODULE_PATH)
 check_stocks = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader is not None
+sys.modules[SPEC.name] = check_stocks
 SPEC.loader.exec_module(check_stocks)
 
 
